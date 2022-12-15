@@ -55,19 +55,19 @@ SECURE_HSTS_PRELOAD = True
 # EMAIL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-host
-EMAIL_HOST = get_secret("EMAIL_HOST")
+# EMAIL_HOST = get_secret("EMAIL_HOST")
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-host-user
-EMAIL_HOST_USER = get_secret("EMAIL_HOST_USER")
+# EMAIL_HOST_USER = get_secret("EMAIL_HOST_USER")
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-host-password
-EMAIL_HOST_PASSWORD = get_secret("EMAIL_HOST_PASSWORD")
+# EMAIL_HOST_PASSWORD = get_secret("EMAIL_HOST_PASSWORD")
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-port
-EMAIL_PORT = 465
+# EMAIL_PORT = 465
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-use-ssl
-EMAIL_USE_SSL = True
+# EMAIL_USE_SSL = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#server-email
-SERVER_EMAIL = get_secret("SERVER_EMAIL")
+# SERVER_EMAIL = get_secret("SERVER_EMAIL")
 # https://docs.djangoproject.com/en/dev/ref/settings/#server-email
-DEFAULT_FROM_EMAIL = get_secret("DEFAULT_FROM_EMAIL")
+# DEFAULT_FROM_EMAIL = get_secret("DEFAULT_FROM_EMAIL")
 
 # ADMIN
 # ------------------------------------------------------------------------------
