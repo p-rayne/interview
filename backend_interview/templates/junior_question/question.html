@@ -13,9 +13,11 @@
                 <div class="collapse" id="question{{ obj.id }}">
                     <div class="card card-body">
                         <p>{{ obj.answer.answer }}</p>
+                        {% if obj.answer.code %}
                         <div class="bg-light p-2 border rounded font-monospace">
                         <p>{{ obj.answer.code|safe }}</p>
                         </div>
+                        {% endif %}
                         <a href="{{ obj.answer.url}}">документация</a>
                     </div>
                 </div>
