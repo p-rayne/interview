@@ -1,0 +1,27 @@
+:root {
+    --main-color: #44B78B;
+  }
+header,
+section {
+  padding: 100px 0;
+}
+header {
+    font-size: 48px;
+    background-color: #44B78B;
+    color: white;
+}
+html,
+body {
+	height: 100%;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+footer {
+    padding: 60px;
+    margin-top: auto;
+    background-color: #44B78B;
+    color: white;
+}
