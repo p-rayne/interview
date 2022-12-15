@@ -10,7 +10,7 @@ class Question(models.Model):
 
 
 class Answer(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    question = models.OneToOneField(Question, on_delete=models.CASCADE)
     answer = models.TextField(verbose_name="Ответ")
     code = models.TextField(null=True, verbose_name="Пример кода")
     url = models.URLField()
