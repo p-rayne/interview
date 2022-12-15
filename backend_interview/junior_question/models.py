@@ -12,7 +12,7 @@ class Question(models.Model):
 class Answer(models.Model):
     question = models.OneToOneField(Question, on_delete=models.CASCADE)
     answer = models.TextField(verbose_name="Ответ")
-    code = models.TextField(null=True, verbose_name="Пример кода")
+    code = models.TextField(null=True, blank=True, verbose_name="Пример кода")
     url = models.URLField()
 
     def __str__(self) -> str:
