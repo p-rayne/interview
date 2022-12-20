@@ -1,8 +1,14 @@
-<ul class="nav justify-content-center">
+<ul class="nav nav-pills justify-content-center pt-2">
   <li class="nav-item">
-    <a class="nav-link link-success fs-5" href="{% url 'main' %}">О проекте</a>
+    <a class="nav-link link-success fs-5 {{ active_main }}" href="{% url 'main' %}">О проекте</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link link-success fs-5" href="{% url 'question_list' %}">Подготовка</a>
+    <a class="nav-link link-success fs-5 {{ active_python }}" href="{% url 'question_python' %}">Python</a>
   </li>
-</ul>
+  <li class="nav-item">
+    <a class="nav-link link-success fs-5 {{ active_django }}" href="{% url 'question_django' %}">Django</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link link-success fs-5" href="">SQL</a>
+  </li>
+</ul> 
