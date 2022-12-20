@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import QuestionListView, IndexTemplateView
+from .views import QuestionDjangoListView, QuestionPythonListView, IndexTemplateView
 
 urlpatterns = [
     path("", IndexTemplateView.as_view(), name="main"),
-    path("question/", QuestionListView.as_view(), name="question_list"),
+    path("question/python", QuestionPythonListView.as_view(), name="question_python"),
+    path("question/django", QuestionDjangoListView.as_view(), name="question_django"),
 ]
