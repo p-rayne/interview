@@ -31,6 +31,19 @@ class QuestionDjangoListView(ListView):
     paginate_by = 20
 
 
+class QuestionSQLListView(ListView):
+    model = Question
+    template_name = "junior_question/SQL.html"
+    extra_context = {
+        "active_sql": active_link,
+        "category": "SQL",
+    }
+    queryset = Question.objects.filter(category__name="SQL").select_related(
+        "category", "answer"
+    )
+    paginate_by = 20
+
+
 class IndexTemplateView(TemplateView):
     template_name = "index.html"
     extra_context = {
