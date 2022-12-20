@@ -1,28 +1,29 @@
 {% extends 'base.html' %}
-{% block title %}Вопросы{% endblock title %}
+{% block title %}Вопросы по {{ category }}{% endblock title %}
 {% block content %}
 <div class="col-md-9 mx-auto">
-{% for obj in object_list %}
-        {% ifchanged %} <h2 class="py-2"> {{ obj.category }} </h2>{% endifchanged %}
-            <article class="px-4">
-                <p>Вопрос: {{ obj.question|linebreaksbr }}</p>
-                <p>
-                <button class="btn btn-success opacity-75" type="button" data-bs-toggle="collapse" data-bs-target="#question{{ obj.id }}" aria-expanded="false" aria-controls="question{{ obj.id }}">
-                    Показать ответ
-                </button>
-                </p>
-                <div class="collapse" id="question{{ obj.id }}">
-                    <div class="card card-body">
-                        <p>{{ obj.answer.answer|linebreaksbr }}</p>
-                        {% if obj.answer.code %}
-                        <div class="bg-light p-2 border rounded font-monospace">
-                        <p>{{ obj.answer.code|safe|linebreaksbr }}</p>
-                        </div>
-                        {% endif %}
-                        <a href="{{ obj.answer.url}}">документация</a>
-                    </div>
-                </div>
-            </article>
-        {% endfor %}
+  {% for obj in page_obj %}
+  <article class="px-4">
+    <p>Вопрос: {{ obj.question|linebreaksbr }}</p>
+    <p>
+      <button class="btn btn-success opacity-75" type="button" data-bs-toggle="collapse"
+        data-bs-target="#question{{ obj.id }}" aria-expanded="false" aria-controls="question{{ obj.id }}">
+        Показать ответ
+      </button>
+    </p>
+    <div class="collapse" id="question{{ obj.id }}">
+      <div class="card card-body">
+        <p>{{ obj.answer.answer|linebreaksbr }}</p>
+        {% if obj.answer.code %}
+        <div class="bg-light p-2 border rounded font-monospace">
+          <p>{{ obj.answer.code|safe|linebreaksbr }}</p>
+        </div>
+        {% endif %}
+        <a href="{{ obj.answer.url}}">доп. информация</a>
+      </div>
+    </div>
+  </article>
+  {% endfor %}
 </div>
+{% include 'includes/_pagination.html' %}
 {% endblock content %}
