@@ -1,7 +1,7 @@
 from django.views.generic import ListView, TemplateView
-from typing import Any, Dict, List
-from random import shuffle
+
 from .models import Question
+from backend_interview.utils.functions import get_question
 
 active_link = "disabled border rounded bg-light shadow-sm"
 
@@ -15,14 +15,8 @@ class QuestionPythonListView(ListView):
     }
     paginate_by = 10
 
-    def get_queryset(self) -> List[any]:
-        queryset = list(
-            Question.objects.filter(category__name="Python").select_related(
-                "category", "answer"
-            )
-        )
-        shuffle(queryset)
-        return queryset
+    def get_queryset(self) -> list[any]:
+        return get_question("Python")
 
 
 class QuestionDjangoListView(ListView):
@@ -34,14 +28,8 @@ class QuestionDjangoListView(ListView):
     }
     paginate_by = 10
 
-    def get_queryset(self) -> List[any]:
-        queryset = list(
-            Question.objects.filter(category__name="Django").select_related(
-                "category", "answer"
-            )
-        )
-        shuffle(queryset)
-        return queryset
+    def get_queryset(self) -> list[any]:
+        return get_question("Django")
 
 
 class QuestionSQLListView(ListView):
@@ -53,14 +41,8 @@ class QuestionSQLListView(ListView):
     }
     paginate_by = 10
 
-    def get_queryset(self) -> List[any]:
-        queryset = list(
-            Question.objects.filter(category__name="SQL").select_related(
-                "category", "answer"
-            )
-        )
-        shuffle(queryset)
-        return queryset
+    def get_queryset(self) -> list[any]:
+        return get_question("SQL")
 
 
 class IndexTemplateView(TemplateView):
@@ -69,7 +51,7 @@ class IndexTemplateView(TemplateView):
         "active_main": active_link,
     }
 
-    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+    def get_context_data(self, **kwargs: any) -> dict[str, any]:
         context = super().get_context_data(**kwargs)
         context["amount"] = Question.objects.count()
         return context
