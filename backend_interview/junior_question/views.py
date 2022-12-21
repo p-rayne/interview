@@ -1,5 +1,6 @@
 from django.views.generic import ListView, TemplateView
-from typing import Any, Dict
+from typing import Any, Dict, List
+from random import shuffle
 from .models import Question
 
 active_link = "disabled border rounded bg-light shadow-sm"
@@ -12,10 +13,16 @@ class QuestionPythonListView(ListView):
         "active_python": active_link,
         "category": "Python",
     }
-    queryset = Question.objects.filter(category__name="Python").select_related(
-        "category", "answer"
-    )
-    paginate_by = 20
+    paginate_by = 10
+
+    def get_queryset(self) -> List[any]:
+        queryset = list(
+            Question.objects.filter(category__name="Python").select_related(
+                "category", "answer"
+            )
+        )
+        shuffle(queryset)
+        return queryset
 
 
 class QuestionDjangoListView(ListView):
@@ -25,10 +32,16 @@ class QuestionDjangoListView(ListView):
         "active_django": active_link,
         "category": "Django",
     }
-    queryset = Question.objects.filter(category__name="Django").select_related(
-        "category", "answer"
-    )
-    paginate_by = 20
+    paginate_by = 10
+
+    def get_queryset(self) -> List[any]:
+        queryset = list(
+            Question.objects.filter(category__name="Django").select_related(
+                "category", "answer"
+            )
+        )
+        shuffle(queryset)
+        return queryset
 
 
 class QuestionSQLListView(ListView):
@@ -38,10 +51,16 @@ class QuestionSQLListView(ListView):
         "active_sql": active_link,
         "category": "SQL",
     }
-    queryset = Question.objects.filter(category__name="SQL").select_related(
-        "category", "answer"
-    )
-    paginate_by = 20
+    paginate_by = 10
+
+    def get_queryset(self) -> List[any]:
+        queryset = list(
+            Question.objects.filter(category__name="SQL").select_related(
+                "category", "answer"
+            )
+        )
+        shuffle(queryset)
+        return queryset
 
 
 class IndexTemplateView(TemplateView):
