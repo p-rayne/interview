@@ -66,7 +66,7 @@ EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#server-email
 SERVER_EMAIL = get_secret("SERVER_EMAIL")
-# https://docs.djangoproject.com/en/dev/ref/settings/#server-email
+# https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-DEFAULT_FROM_EMAIL
 DEFAULT_FROM_EMAIL = get_secret("DEFAULT_FROM_EMAIL")
 
 # ADMIN
